@@ -24,17 +24,7 @@
             </div>
         </div>
     </div>
-
-    {{-- <div class="col-md-3 mb-4">
-        <div class="card stat-card warning">
-            <div class="card-body text-center">
-                <i class="fas fa-users fa-3x mb-3"></i>
-                <h3 class="mb-0">{{ $totalUsers }}</h3>
-                <p class="mb-0">Users</p>
-            </div>
-        </div>
-    </div> --}}
-
+    
     <div class="col-md-3 mb-4">
         <div class="card stat-card">
             <div class="card-body text-center">

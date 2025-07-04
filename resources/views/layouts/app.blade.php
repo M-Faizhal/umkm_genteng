@@ -76,9 +76,9 @@
             Manage your UMKM (Usaha Mikro Kecil Menengah) listings with our comprehensive admin panel
         </p>
 
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-admin">
+        <a href="{{ Auth::check() ? route('admin.dashboard') : route('login') }}" class="btn btn-admin">
             <i class="fas fa-tachometer-alt me-2"></i>
-            Go to Admin Dashboard
+            {{ Auth::check() ? 'Go to Admin Dashboard' : 'Login to Admin Panel' }}
         </a>
 
         <ul class="feature-list list-unstyled">

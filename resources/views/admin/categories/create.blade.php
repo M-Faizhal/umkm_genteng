@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Create Category')
+@section('title', 'Tambah Kategori')
 
 @section('content')
 <div class="row">
@@ -9,17 +9,17 @@
             <div class="card-header">
                 <h5 class="mb-0">
                     <i class="fas fa-plus me-2"></i>
-                    Create New Category
+                    Tambah Kategori Baru
                 </h5>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.categories.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="categories" class="form-label">Category Name</label>
+                        <label for="categories" class="form-label">Nama Kategori</label>
                         <input type="text" class="form-control @error('categories') is-invalid @enderror"
                                id="categories" name="categories" value="{{ old('categories') }}"
-                               placeholder="Enter category name" required>
+                               placeholder="Masukkan nama kategori" required>
                         @error('categories')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -30,11 +30,11 @@
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-save me-2"></i>
-                            Create Category
+                            Tambah Kategori
                         </button>
                         <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">
                             <i class="fas fa-times me-2"></i>
-                            Cancel
+                            Batal
                         </a>
                     </div>
                 </form>
@@ -54,16 +54,16 @@
                 <ul class="list-unstyled">
                     <li class="mb-2">
                         <i class="fas fa-check text-success me-2"></i>
-                        Use descriptive names for categories
+                        Gunakan nama yang deskriptif
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-check text-success me-2"></i>
-                        Keep category names short and clear
+                        Usahakan nama kategori singkat dan jelas
                     </li>
-                    <li class="mb-2">
+                    {{-- <li class="mb-2">
                         <i class="fas fa-check text-success me-2"></i>
                         Categories help organize UMKM listings
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
