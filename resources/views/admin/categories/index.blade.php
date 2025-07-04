@@ -6,17 +6,17 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="page-title">
         <i class="fas fa-tags me-2"></i>
-        Categories Management
+        Manajemen Kategori
     </h1>
     <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>
-        Add New Category
+        Tambah Kategori Baru
     </a>
 </div>
 
 <div class="card">
     <div class="card-header">
-        <h5 class="mb-0">All Categories</h5>
+        <h5 class="mb-0">Semua Kategori</h5>
     </div>
     <div class="card-body">
         @if($categories->count() > 0)
@@ -24,11 +24,11 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Category Name</th>
-                            <th>UMKM Count</th>
-                            <th>Created At</th>
-                            <th>Actions</th>
+                            <th>No</th>
+                            <th>Nama Kategori</th>
+                            <th>Jumlah UMKM</th>
+                            <th>Dibuat pada tanggal</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,12 +44,12 @@
                             <td>{{ $category->created_at->format('d M Y H:i') }}</td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <a href="{{ route('admin.categories.show', $category) }}" class="btn btn-sm btn-outline-info">
+                                    {{-- <a href="{{ route('admin.categories.show', $category) }}" class="btn btn-sm btn-outline-info">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                     <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-sm btn-outline-primary">
                                         <i class="fas fa-edit"></i>
-                                    </a>
+                                    </a> --}}
                                     <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
@@ -67,12 +67,11 @@
         @else
             <div class="text-center py-5">
                 <i class="fas fa-tags fa-3x text-muted mb-3"></i>
-                <h4 class="text-muted">No Categories Found</h4>
-                <p class="text-muted">Start by creating your first category</p>
+                <h4 class="text-muted">Tidak ada kategori</h4>
+                <p class="text-muted">Tambah kategori baru</p>
                 <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">
                     <i class="fas fa-plus me-2"></i>
-                    Create First Category
-                </a>
+                    Buat Kategori
             </div>
         @endif
     </div>

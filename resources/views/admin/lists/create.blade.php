@@ -9,7 +9,7 @@
             <div class="card-header">
                 <h5 class="mb-0">
                     <i class="fas fa-plus me-2"></i>
-                    Create New UMKM
+                    Tambah UMKM Baru
                 </h5>
             </div>
             <div class="card-body">
@@ -18,10 +18,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="id_categories" class="form-label">Category</label>
+                                <label for="id_categories" class="form-label">Kategori</label>
                                 <select class="form-select @error('id_categories') is-invalid @enderror"
                                         id="id_categories" name="id_categories" required>
-                                    <option value="">Select Category</option>
+                                    <option value="">Pilih Kategori</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ old('id_categories') == $category->id ? 'selected' : '' }}>
                                             {{ $category->categories }}
@@ -36,7 +36,7 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="nama" class="form-label">UMKM Name</label>
+                                <label for="nama" class="form-label">Nama UMKM</label>
                                 <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                        id="nama" name="nama" value="{{ old('nama') }}"
                                        placeholder="Enter UMKM name" required>
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="desc" class="form-label">Short Description</label>
+                        <label for="desc" class="form-label">Deskripsi Singkat</label>
                         <textarea class="form-control @error('desc') is-invalid @enderror"
                                   id="desc" name="desc" rows="3"
                                   placeholder="Enter short description">{{ old('desc') }}</textarea>
@@ -60,7 +60,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="owner" class="form-label">Owner</label>
+                                <label for="owner" class="form-label">Pemilik</label>
                                 <input type="text" class="form-control @error('owner') is-invalid @enderror"
                                        id="owner" name="owner" value="{{ old('owner') }}"
                                        placeholder="Enter owner name">
@@ -72,7 +72,7 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="year" class="form-label">Established Year</label>
+                                <label for="year" class="form-label">Tahun Berdiri</label>
                                 <input type="number" class="form-control @error('year') is-invalid @enderror"
                                        id="year" name="year" value="{{ old('year') }}"
                                        placeholder="Enter established year" min="1900" max="{{ date('Y') }}">
@@ -84,7 +84,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="address" class="form-label">Address</label>
+                        <label for="address" class="form-label">Alamat</label>
                         <input type="text" class="form-control @error('address') is-invalid @enderror"
                                id="address" name="address" value="{{ old('address') }}"
                                placeholder="Enter address">
@@ -108,7 +108,7 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="telp" class="form-label">Phone</label>
+                                <label for="telp" class="form-label">Nomor HP</label>
                                 <input type="text" class="form-control @error('telp') is-invalid @enderror"
                                        id="telp" name="telp" value="{{ old('telp') }}"
                                        placeholder="Enter phone number">
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="op_hour" class="form-label">Operating Hours</label>
+                        <label for="op_hour" class="form-label">Jam </label>
                         <input type="text" class="form-control @error('op_hour') is-invalid @enderror"
                                id="op_hour" name="op_hour" value="{{ old('op_hour') }}"
                                placeholder="e.g., 08:00 - 17:00">
