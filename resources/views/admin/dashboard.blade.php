@@ -10,7 +10,7 @@
             <div class="card-body text-center">
                 <i class="fas fa-tags fa-3x mb-3"></i>
                 <h3 class="mb-0">{{ $totalCategories }}</h3>
-                <p class="mb-0">Categories</p>
+                <p class="mb-0">Kategori</p>
             </div>
         </div>
     </div>
@@ -20,12 +20,12 @@
             <div class="card-body text-center">
                 <i class="fas fa-store fa-3x mb-3"></i>
                 <h3 class="mb-0">{{ $totalLists }}</h3>
-                <p class="mb-0">UMKM Lists</p>
+                <p class="mb-0">Jumlah UMKM</p>
             </div>
         </div>
     </div>
 
-    <div class="col-md-3 mb-4">
+    {{-- <div class="col-md-3 mb-4">
         <div class="card stat-card warning">
             <div class="card-body text-center">
                 <i class="fas fa-users fa-3x mb-3"></i>
@@ -33,14 +33,14 @@
                 <p class="mb-0">Users</p>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="col-md-3 mb-4">
         <div class="card stat-card">
             <div class="card-body text-center">
                 <i class="fas fa-chart-line fa-3x mb-3"></i>
                 <h3 class="mb-0">{{ number_format($totalLists / max($totalCategories, 1), 1) }}</h3>
-                <p class="mb-0">Avg per Category</p>
+                <p class="mb-0">Rata-Rata UMKM per Kategori</p>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
             <div class="card-header">
                 <h5 class="mb-0">
                     <i class="fas fa-clock me-2"></i>
-                    Recent UMKM Lists
+                    UMKM Terbaru
                 </h5>
             </div>
             <div class="card-body">
@@ -62,11 +62,11 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Category</th>
-                                    <th>Owner</th>
-                                    <th>Date Added</th>
-                                    <th>Action</th>
+                                    <th>Nama</th>
+                                    <th>Kategori</th>
+                                    <th>Pemilik</th>
+                                    <th>Dibuat pada tanggal</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -82,11 +82,11 @@
                                     </td>
                                     <td>{{ $list->owner ?? 'N/A' }}</td>
                                     <td>{{ $list->created_at->format('d M Y') }}</td>
-                                    <td>
+                                    {{-- <td>
                                         <a href="{{ route('admin.lists.show', $list) }}" class="btn btn-sm btn-outline-primary">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -112,23 +112,23 @@
             <div class="card-header">
                 <h5 class="mb-0">
                     <i class="fas fa-bolt me-2"></i>
-                    Quick Actions
+                    Aksi Cepat
                 </h5>
             </div>
             <div class="card-body">
                 <div class="d-grid gap-3">
                     <a href="{{ route('admin.lists.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus me-2"></i>
-                        Add New UMKM
+                        Tambah UMKM Baru
                     </a>
                     <a href="{{ route('admin.categories.create') }}" class="btn btn-success">
                         <i class="fas fa-tag me-2"></i>
-                        Add Category
+                        Tambah Kategori Baru
                     </a>
-                    <a href="{{ route('admin.users.create') }}" class="btn btn-warning">
+                    {{-- <a href="{{ route('admin.users.create') }}" class="btn btn-warning">
                         <i class="fas fa-user-plus me-2"></i>
                         Add User
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </div>
@@ -145,20 +145,20 @@
                 <ul class="list-unstyled mb-0">
                     <li class="mb-2">
                         <i class="fas fa-calendar text-primary me-2"></i>
-                        <strong>Date:</strong> {{ date('d M Y') }}
+                        <strong>Tanggal:</strong> {{ date('d M Y') }}
                     </li>
                     <li class="mb-2">
                         <i class="fas fa-clock text-info me-2"></i>
-                        <strong>Time:</strong> {{ date('H:i:s') }}
+                        <strong>Waktu:</strong> {{ date('H:i:s') }}
                     </li>
-                    <li class="mb-2">
+                    {{-- <li class="mb-2">
                         <i class="fas fa-server text-success me-2"></i>
                         <strong>Laravel:</strong> {{ app()->version() }}
                     </li>
                     <li>
                         <i class="fas fa-database text-warning me-2"></i>
                         <strong>Database:</strong> Connected
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>

@@ -118,16 +118,16 @@
                         </a>
                         <a class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
                             <i class="fas fa-tags me-2"></i>
-                            Categories
+                            Kategori
                         </a>
                         <a class="nav-link {{ request()->routeIs('admin.lists.*') ? 'active' : '' }}" href="{{ route('admin.lists.index') }}">
                             <i class="fas fa-list me-2"></i>
-                            UMKM Lists
+                            List UMKM
                         </a>
-                        <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
+                        {{-- <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
                             <i class="fas fa-users me-2"></i>
                             Users
-                        </a>
+                        </a> --}}
                     </nav>
                 </div>
             </div>

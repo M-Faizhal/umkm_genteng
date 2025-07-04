@@ -6,17 +6,17 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="page-title">
         <i class="fas fa-store me-2"></i>
-        UMKM Lists Management
+        Manajemen UMKM
     </h1>
     <a href="{{ route('admin.lists.create') }}" class="btn btn-primary">
         <i class="fas fa-plus me-2"></i>
-        Add New UMKM
+        Tambah UMKM Baru
     </a>
 </div>
 
 <div class="card">
     <div class="card-header">
-        <h5 class="mb-0">All UMKM Lists</h5>
+        <h5 class="mb-0">List UMKM</h5>
     </div>
     <div class="card-body">
         @if($lists->count() > 0)
@@ -24,12 +24,12 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Category</th>
-                            <th>Owner</th>
-                            <th>Contact</th>
-                            <th>Year</th>
-                            <th>Actions</th>
+                            <th>Nama</th>
+                            <th>Kategori</th>
+                            <th>Pemilik</th>
+                            <th>Nomor HP</th>
+                            <th>Tahun Berdiri</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,9 +58,6 @@
                             <td>{{ $list->year ?? 'N/A' }}</td>
                             <td>
                                 <div class="btn-group" role="group">
-                                    <a href="{{ route('admin.lists.show', $list) }}" class="btn btn-sm btn-outline-info">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
                                     <a href="{{ route('admin.lists.edit', $list) }}" class="btn btn-sm btn-outline-primary">
                                         <i class="fas fa-edit"></i>
                                     </a>

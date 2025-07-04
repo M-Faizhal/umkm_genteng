@@ -55,25 +55,25 @@ class ListsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Lists $lists)
+    public function show(Lists $list)
     {
-        $lists->load('category');
-        return view('admin.lists.show', compact('lists'));
+        $list->load('category');
+        return view('admin.lists.show', ['list' => $list]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Lists $lists)
+    public function edit(Lists $list)
     {
         $categories = Categories::all();
-        return view('admin.lists.edit', compact('lists', 'categories'));
+        return view('admin.lists.edit', ['list' => $list, 'categories' => $categories]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Lists $lists)
+    public function update(Request $request, Lists $list)
     {
         $request->validate([
             'id_categories' => 'required|exists:categories,id',
@@ -91,7 +91,7 @@ class ListsController extends Controller
             'img_lists' => 'nullable|string|max:255'
         ]);
 
-        $lists->update($request->all());
+        $list->update($request->all());
 
         return redirect()->route('admin.lists.index')->with('success', 'List updated successfully.');
     }
@@ -99,9 +99,9 @@ class ListsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Lists $lists)
+    public function destroy(Lists $list)
     {
-        $lists->delete();
+        $list->delete();
         return redirect()->route('admin.lists.index')->with('success', 'List deleted successfully.');
     }
 }
