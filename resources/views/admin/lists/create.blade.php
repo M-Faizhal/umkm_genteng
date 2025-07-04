@@ -39,7 +39,7 @@
                                 <label for="nama" class="form-label">Nama UMKM</label>
                                 <input type="text" class="form-control @error('nama') is-invalid @enderror"
                                        id="nama" name="nama" value="{{ old('nama') }}"
-                                       placeholder="Enter UMKM name" required>
+                                       placeholder="Masukkan nama UMKM" required>
                                 @error('nama')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -51,7 +51,7 @@
                         <label for="desc" class="form-label">Deskripsi Singkat</label>
                         <textarea class="form-control @error('desc') is-invalid @enderror"
                                   id="desc" name="desc" rows="3"
-                                  placeholder="Enter short description">{{ old('desc') }}</textarea>
+                                  placeholder="Tambahkan deskripsi singkat">{{ old('desc') }}</textarea>
                         @error('desc')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -63,7 +63,7 @@
                                 <label for="owner" class="form-label">Pemilik</label>
                                 <input type="text" class="form-control @error('owner') is-invalid @enderror"
                                        id="owner" name="owner" value="{{ old('owner') }}"
-                                       placeholder="Enter owner name">
+                                       placeholder="Masukkan nama pemilik">
                                 @error('owner')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -75,7 +75,7 @@
                                 <label for="year" class="form-label">Tahun Berdiri</label>
                                 <input type="number" class="form-control @error('year') is-invalid @enderror"
                                        id="year" name="year" value="{{ old('year') }}"
-                                       placeholder="Enter established year" min="1900" max="{{ date('Y') }}">
+                                       placeholder="Masukkan tahun berdiri UMKM" min="1900" max="{{ date('Y') }}">
                                 @error('year')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -87,7 +87,7 @@
                         <label for="address" class="form-label">Alamat</label>
                         <input type="text" class="form-control @error('address') is-invalid @enderror"
                                id="address" name="address" value="{{ old('address') }}"
-                               placeholder="Enter address">
+                               placeholder="Masukkan alamat UMKM">
                         @error('address')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -99,7 +99,7 @@
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror"
                                        id="email" name="email" value="{{ old('email') }}"
-                                       placeholder="Enter email">
+                                       placeholder="Masukkan email">
                                 @error('email')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -111,7 +111,7 @@
                                 <label for="telp" class="form-label">Nomor HP</label>
                                 <input type="text" class="form-control @error('telp') is-invalid @enderror"
                                        id="telp" name="telp" value="{{ old('telp') }}"
-                                       placeholder="Enter phone number">
+                                       placeholder="Masukkan nomor telepon">
                                 @error('telp')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -120,47 +120,47 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="op_hour" class="form-label">Jam </label>
+                        <label for="op_hour" class="form-label">Jam Kerja</label>
                         <input type="text" class="form-control @error('op_hour') is-invalid @enderror"
                                id="op_hour" name="op_hour" value="{{ old('op_hour') }}"
-                               placeholder="e.g., 08:00 - 17:00">
+                               placeholder="Contoh: 08:00 - 17:00">
                         @error('op_hour')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="products" class="form-label">Products/Services</label>
+                        <label for="products" class="form-label">Produk/Jasa</label>
                         <textarea class="form-control @error('products') is-invalid @enderror"
                                   id="products" name="products" rows="3"
-                                  placeholder="Describe products or services">{{ old('products') }}</textarea>
+                                  placeholder="Deskripsikan produk/jasa pada UMKM ini">{{ old('products') }}</textarea>
                         @error('products')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="about" class="form-label">About</label>
+                        <label for="about" class="form-label">Tentang UMKM</label>
                         <textarea class="form-control @error('about') is-invalid @enderror"
                                   id="about" name="about" rows="3"
-                                  placeholder="About the business">{{ old('about') }}</textarea>
+                                  placeholder="Tentang UMKM">{{ old('about') }}</textarea>
                         @error('about')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="full_desc" class="form-label">Full Description</label>
+                        <label for="full_desc" class="form-label">Deskripsi Penuh</label>
                         <textarea class="form-control @error('full_desc') is-invalid @enderror"
                                   id="full_desc" name="full_desc" rows="5"
-                                  placeholder="Enter full description">{{ old('full_desc') }}</textarea>
+                                  placeholder="Tambah deskripsi penuh">{{ old('full_desc') }}</textarea>
                         @error('full_desc')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
                     <div class="mb-3">
-                        <label for="img_lists" class="form-label">Image URL</label>
+                        <label for="img_lists" class="form-label">Image</label>
                         <input type="text" class="form-control @error('img_lists') is-invalid @enderror"
                                id="img_lists" name="img_lists" value="{{ old('img_lists') }}"
                                placeholder="Enter image URL">
@@ -172,11 +172,11 @@
                     <div class="d-flex gap-2">
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-save me-2"></i>
-                            Create UMKM
+                            Tambah UMKM
                         </button>
                         <a href="{{ route('admin.lists.index') }}" class="btn btn-secondary">
                             <i class="fas fa-times me-2"></i>
-                            Cancel
+                            Batal
                         </a>
                     </div>
                 </form>
