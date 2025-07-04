@@ -64,7 +64,7 @@
                                     <form action="{{ route('admin.lists.destroy', $list) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure you want to delete this UMKM?')">
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Ingin menghapus UMKM ini?')">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>

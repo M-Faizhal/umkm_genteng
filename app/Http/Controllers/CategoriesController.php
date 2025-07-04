@@ -72,9 +72,14 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categories $categories)
+    public function destroy(Categories $category)
     {
-        $categories->delete();
-        return redirect()->route('admin.categories.index')->with('success', 'Category deleted successfully.');
+        // Prevent deletion if category still has UMKM attached
+        if ($category->lists()->count() > 0) {
+            return redirect()->route('admin.categories.index')
+                ->with('error', 'Tidak bisa hapus kategori dikarenakan ada UMKM yang mempunyai kategori tersebut.');
+        }
+        $category->delete();
+        return redirect()->route('admin.categories.index')->with('success', 'Kategori berhasil dihapus.');
     }
 }
