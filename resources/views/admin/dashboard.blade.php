@@ -5,7 +5,7 @@
 @section('content')
 <div class="row">
     <!-- Stats Cards -->
-    <div class="col-md-3 mb-4">
+    <div class="col-md-4 mb-4">
         <div class="card stat-card info">
             <div class="card-body text-center">
                 <i class="fas fa-tags fa-3x mb-3"></i>
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="col-md-3 mb-4">
+    <div class="col-md-4 mb-4">
         <div class="card stat-card success">
             <div class="card-body text-center">
                 <i class="fas fa-store fa-3x mb-3"></i>
@@ -24,8 +24,8 @@
             </div>
         </div>
     </div>
-    
-    <div class="col-md-3 mb-4">
+
+    <div class="col-md-4 mb-4">
         <div class="card stat-card">
             <div class="card-body text-center">
                 <i class="fas fa-chart-line fa-3x mb-3"></i>
@@ -72,11 +72,6 @@
                                     </td>
                                     <td>{{ $list->owner ?? 'N/A' }}</td>
                                     <td>{{ $list->created_at->format('d M Y') }}</td>
-                                    {{-- <td>
-                                        <a href="{{ route('admin.lists.show', $list) }}" class="btn btn-sm btn-outline-primary">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                    </td> --}}
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -115,10 +110,6 @@
                         <i class="fas fa-tag me-2"></i>
                         Tambah Kategori Baru
                     </a>
-                    {{-- <a href="{{ route('admin.users.create') }}" class="btn btn-warning">
-                        <i class="fas fa-user-plus me-2"></i>
-                        Add User
-                    </a> --}}
                 </div>
             </div>
         </div>
@@ -141,14 +132,6 @@
                         <i class="fas fa-clock text-info me-2"></i>
                         <strong>Waktu:</strong> {{ date('H:i:s') }}
                     </li>
-                    {{-- <li class="mb-2">
-                        <i class="fas fa-server text-success me-2"></i>
-                        <strong>Laravel:</strong> {{ app()->version() }}
-                    </li>
-                    <li>
-                        <i class="fas fa-database text-warning me-2"></i>
-                        <strong>Database:</strong> Connected
-                    </li> --}}
                 </ul>
             </div>
         </div>

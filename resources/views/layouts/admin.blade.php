@@ -347,6 +347,27 @@
         [data-theme="dark"] .dropdown-item.logout-btn:hover {
             background-color: #374151 !important;
         }
+
+        /* Social Media Icons */
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-outline-dark:hover {
+            background-color: #212529;
+            border-color: #212529;
+        }
+
+        /* Image preview styles */
+        .img-thumbnail {
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .img-thumbnail:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -435,7 +456,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Auto-hide alerts after 5 seconds
         setTimeout(function() {
             const alerts = document.querySelectorAll('.alert');
             alerts.forEach(function(alert) {
@@ -444,7 +464,6 @@
             });
         }, 5000);
 
-        // Theme Toggle Functionality
         function toggleTheme() {
             const html = document.documentElement;
             const themeIcon = document.getElementById('theme-icon');
@@ -461,7 +480,6 @@
             }
         }
 
-        // Load saved theme on page load
         document.addEventListener('DOMContentLoaded', function() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             const html = document.documentElement;

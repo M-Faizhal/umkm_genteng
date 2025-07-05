@@ -13,7 +13,7 @@
                 </h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.lists.store') }}" method="POST">
+                <form action="{{ route('admin.lists.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -159,14 +159,43 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
-                        <label for="img_lists" class="form-label">Image</label>
-                        <input type="text" class="form-control @error('img_lists') is-invalid @enderror"
-                               id="img_lists" name="img_lists" value="{{ old('img_lists') }}"
-                               placeholder="Enter image URL">
-                        @error('img_lists')
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="ig_url" class="form-label">Instagram URL</label>
+                                <input type="url" class="form-control @error('ig_url') is-invalid @enderror"
+                                       id="ig_url" name="ig_url" value="{{ old('ig_url') }}"
+                                       placeholder="Masukkan URL Instagram">
+                                @error('ig_url')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="tiktok_url" class="form-label">TikTok URL</label>
+                                <input type="url" class="form-control @error('tiktok_url') is-invalid @enderror"
+                                       id="tiktok_url" name="tiktok_url" value="{{ old('tiktok_url') }}"
+                                       placeholder="Masukkan URL TikTok">
+                                @error('tiktok_url')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>                    <div class="mb-3">
+                        <label for="img_lists" class="form-label">Upload Images (Maksimal 4 gambar)</label>
+                        <input type="file" class="form-control @error('img_lists.*') is-invalid @enderror"
+                               id="img_lists" name="img_lists[]" accept="image/*" multiple onchange="previewImages(this)">
+                        <small class="form-text text-muted">Format yang didukung: JPG, PNG, GIF. Maksimal 2MB per file. Pilih maksimal 4 gambar.</small>
+                        @error('img_lists.*')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+
+                        <!-- Image Preview -->
+                        <div id="imagePreview" class="mt-3 row" style="display: none;">
+                            <!-- Previews will be added here -->
+                        </div>
                     </div>
 
                     <div class="d-flex gap-2">
@@ -184,4 +213,52 @@
         </div>
     </div>
 </div>
+
+<script>
+function previewImages(input) {
+    const previewContainer = document.getElementById('imagePreview');
+    previewContainer.innerHTML = ''; // Clear previous previews
+
+    if (input.files && input.files.length > 0) {
+        // Check if more than 4 files selected
+        if (input.files.length > 4) {
+            alert('Maksimal 4 gambar yang dapat dipilih!');
+            input.value = ''; // Clear the input
+            previewContainer.style.display = 'none';
+            return;
+        }
+
+        previewContainer.style.display = 'block';
+
+        Array.from(input.files).forEach((file, index) => {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const col = document.createElement('div');
+                col.className = 'col-md-3 mb-2';
+
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.className = 'img-thumbnail';
+                img.style.width = '100%';
+                img.style.height = '150px';
+                img.style.objectFit = 'cover';
+                img.alt = `Preview ${index + 1}`;
+
+                const label = document.createElement('small');
+                label.className = 'd-block text-center mt-1';
+                label.textContent = `Gambar ${index + 1}`;
+
+                col.appendChild(img);
+                col.appendChild(label);
+                previewContainer.appendChild(col);
+            }
+
+            reader.readAsDataURL(file);
+        });
+    } else {
+        previewContainer.style.display = 'none';
+    }
+}
+</script>
 @endsection

@@ -27,8 +27,20 @@
                 <h5 class="mb-0">{{ $lists->nama }}</h5>
             </div>
             <div class="card-body">
-                @if($lists->img_lists)
-                    <img src="{{ $lists->img_lists }}" alt="{{ $lists->nama }}" class="img-fluid rounded mb-3" style="max-height: 300px;">
+                @if($lists->getAllImages->count() > 0)
+                    <div class="mb-4">
+                        <h6 class="mb-3">Galeri Gambar:</h6>
+                        <div class="row">
+                            @foreach($lists->getAllImages as $index => $imageUrl)
+                                <div class="col-md-3 mb-3">
+                                    <img src="{{ $imageUrl }}" alt="{{ $lists->nama }} - Gambar {{ $index + 1 }}"
+                                         class="img-fluid rounded" style="width: 100%; height: 200px; object-fit: cover; cursor: pointer;"
+                                         onclick="openImageModal('{{ $imageUrl }}', '{{ $lists->nama }} - Gambar {{ $index + 1 }}')">
+                                    <small class="d-block text-center mt-1 text-muted">Gambar {{ $index + 1 }}</small>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 @endif
 
                 <div class="row">
@@ -65,6 +77,30 @@
                             <tr>
                                 <td><strong>Operating Hours:</strong></td>
                                 <td>{{ $lists->op_hour ?? 'N/A' }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Instagram:</strong></td>
+                                <td>
+                                    @if($lists->ig_url)
+                                        <a href="{{ $lists->ig_url }}" target="_blank" class="btn btn-sm btn-outline-danger">
+                                            <i class="fab fa-instagram me-1"></i>Visit Instagram
+                                        </a>
+                                    @else
+                                        N/A
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>TikTok:</strong></td>
+                                <td>
+                                    @if($lists->tiktok_url)
+                                        <a href="{{ $lists->tiktok_url }}" target="_blank" class="btn btn-sm btn-outline-dark">
+                                            <i class="fab fa-tiktok me-1"></i>Visit TikTok
+                                        </a>
+                                    @else
+                                        N/A
+                                    @endif
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong>Created:</strong></td>
@@ -153,4 +189,30 @@
         </div>
     </div>
 </div>
+
+<!-- Modal for Image Viewing -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Gambar UMKM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openImageModal(imageUrl, altText) {
+    document.getElementById('modalImage').src = imageUrl;
+    document.getElementById('modalImage').alt = altText;
+    document.getElementById('imageModalLabel').textContent = altText;
+
+    var imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+    imageModal.show();
+}
+</script>
 @endsection

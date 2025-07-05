@@ -20,6 +20,8 @@ return new class extends Migration {
             $table->text('about')->nullable();
             $table->text('products')->nullable();
             $table->string('op_hour')->nullable();
+            $table->string('ig_url')->nullable();
+            $table->string('tiktok_url')->nullable();
             $table->string('img_lists')->nullable();
             $table->timestamps();
 

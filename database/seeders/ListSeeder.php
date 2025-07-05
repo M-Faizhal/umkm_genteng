@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +26,9 @@ class ListSeeder extends Seeder
                 'about' => 'Usaha keluarga yang konsisten menjaga rasa.',
                 'products' => 'Bakso, Mie Ayam',
                 'op_hour' => '08:00-21:00',
-                'img_lists' => 'bakso.jpg',
+                'ig_url' => 'https://instagram.com/bakso_pak_slamet',
+                'tiktok_url' => 'https://tiktok.com/@baksopakslamet',
+                'img_lists' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -44,7 +45,9 @@ class ListSeeder extends Seeder
                 'about' => 'Mengutamakan kualitas dan keaslian produk.',
                 'products' => 'Jamu, Madu, Minyak Herbal',
                 'op_hour' => '09:00-17:00',
-                'img_lists' => 'herbal.jpg',
+                'ig_url' => 'https://instagram.com/herbalsehat',
+                'tiktok_url' => 'https://tiktok.com/@herbalsehat',
+                'img_lists' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
@@ -61,7 +64,9 @@ class ListSeeder extends Seeder
                 'about' => 'Memberdayakan masyarakat sekitar.',
                 'products' => 'Anyaman, Vas, Hiasan Dinding',
                 'op_hour' => '10:00-18:00',
-                'img_lists' => 'bambu.jpg',
+                'ig_url' => 'https://instagram.com/bambujaya',
+                'tiktok_url' => 'https://tiktok.com/@bambujaya',
+                'img_lists' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
